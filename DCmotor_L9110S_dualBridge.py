@@ -50,7 +50,7 @@ class L9110S:
 # Example usage
 def main():
     # Initialize motor driver with GPIO pins 16 and 17
-    motor = L9110S(18, 19)
+    motor = L9110S(15, 16)
     
     while True:
         print("Forward at 50% speed")
