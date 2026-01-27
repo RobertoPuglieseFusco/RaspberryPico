@@ -1,17 +1,31 @@
-## using DRV8855
+## using TMC2208/2209
 
 ## https://a.pololu-files.com/picture/0J4232.1200.png?f2f6269e0a80c41f0a5147915106aa55
 
-# M0    M1    M2  | Resolution
-# ----------------|------------------
-# GND   GND   GND | Full step (1/1)
-# 3V3   GND   GND | Half step (1/2)
-# GND   3V3   GND | 1/4 step
-# 3V3   3V3   GND | 1/8 step
-# GND   GND   3V3 | 1/16 step ← YOU WANT THIS
-# 3V3   GND   3V3 | 1/32 step
-# GND   3V3   3V3 | 1/32 step
-# 3V3   3V3   3V3 | 1/32 step
+# POWER:
+# 12V → VMOT
+# GND → GND
+# Pico GND → TMC GND
+# 
+# CONTROL:
+# Pico GP14 → TMC STEP
+# Pico GP15 → TMC DIR
+# Pico GP13 → TMC EN (enable)
+# 
+# MICROSTEPPING (hardware pins):
+# MS1 → GND or 3.3V
+# MS2 → GND or 3.3V
+# (See table below)
+# 
+# MOTOR:
+# Motor coils → B2, B1, A1, A2
+
+# MS1   MS2  | Resolution
+# ------------|------------------
+# GND   GND  | 1/8 step (default)
+# 3V3   GND  | 1/2 step
+# GND   3V3  | 1/4 step
+# 3V3   3V3  | 1/16 step
 
 from machine import Pin
 from time import sleep, sleep_us
