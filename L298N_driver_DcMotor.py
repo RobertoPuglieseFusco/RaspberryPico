@@ -48,17 +48,16 @@ def motor_stop():
 
 # Example usage
 try:
-    print("Motor forward at 50% speed")
-    motor_forward(50)
-    time.sleep(3)
-    
-    print("Motor backward at 75% speed")
-    motor_backward(75)
-    time.sleep(3)
-    
-    print("Motor forward at full speed")
-    motor_forward(100)
-    time.sleep(3)
+    while True:
+        print("Motor forward at 50% speed")
+        motor_forward(50)
+        time.sleep(5.2)
+        motor_stop()
+        time.sleep(1.2)
+        motor_backward(50)
+        time.sleep(5.2)
+        motor_stop()
+        time.sleep(3)
     
 except KeyboardInterrupt:
     # Stop motor on Ctrl+C
